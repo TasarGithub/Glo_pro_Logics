@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 function functionTrain(speedTrain1, speedTrain2, distance){
   
@@ -6,9 +6,10 @@ function functionTrain(speedTrain1, speedTrain2, distance){
        timeHour = Math.trunc(timeNum),
        timeMin = Math.trunc((timeNum - timeHour) * 60),
        timeSec = Math.floor(((timeNum - timeHour) * 60 - timeMin)* 60);
-  return timeHour + ' h ' + timeMin + ' min  ' + ' sec ';
+  return timeHour + 'hh ' + timeMin + 'mm ' + timeSec + 'ss';
 
 }
-consol.log (functionTrain(60, 80, 140));
+console.log ('Время до встречи двух поездов: ' + functionTrain(60, 80, 804));
+
 
   
