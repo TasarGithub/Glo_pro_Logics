@@ -1,5 +1,5 @@
 'use strict';
-
+// logics191030
 function functionTrain(speedTrain1, speedTrain2, distance){
   
   let timeNum = distance / (speedTrain1+speedTrain2),
@@ -12,4 +12,4 @@ function functionTrain(speedTrain1, speedTrain2, distance){
 console.log ('Время до встречи двух поездов: ' + functionTrain(60, 80, 804));
 
 
-  
+  //sdsdsd
