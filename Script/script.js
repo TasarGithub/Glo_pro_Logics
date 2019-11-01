@@ -5,20 +5,33 @@
 // Последнее значение всегда равно нулю, поскольку справа от последнего элемента нет
 // элементов.
 
-function amountSmaller(arr) {
-  let arrSmaller = arr.filter(function(v,i,ar){
-    return ar[0]>v;
-  });
-  return arrSmaller.length;
-} 
 
-function funcNum(arrNum){
-  //let arrNum = [5,4,4,6,1],
-
-  for (let i = 0; i < arrNum.length; i++ ){
-    arrNum[i] = amountSmaller (arrNum.slice(i));
-  }
-  console.log('arrResult: ', arrNum);
+let funcDegree = function (h,m){
+  const degreeInHour = 360/12,
+        degreeInMin = 360/60,
+        //коррекция на прохождение часовой стрелки, от точного значения в течении часа.
+        correctionHour = (5 * (m / 60 )),
+   //console.log('correctionHour: ', correctionHour.toFixed(1));
+        degM = m*degreeInMin ,
+        degH = h*degreeInHour + correctionHour.toFixed(1)*degreeInMin;
+    console.log('degM: ', degM);
+    console.log('degH: ', degH);
+    let result;
+  // мин впереди часовой
+  if  (degM >= degH) {
+    return degM - degH;
+  // часовая впереди мин
+  } else if (degM < degH){
+    return degH + degM; 
+  } 
 }
 
-funcNum([5,4,3,2,1]);
+console.log('funcDegree(10,45);: ', funcDegree(10,45));
+
+console.log('funcDegree(11, 05);: ', funcDegree(11, 5));
+
+console.log('funcDegree(3,50);: ', funcDegree(3,50));
+
+console.log('funcDegree(6,10);: ', funcDegree(6,10));
+
+console.log('funcDegree(7,17);: ', funcDegree(7,17));
