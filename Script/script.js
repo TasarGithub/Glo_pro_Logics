@@ -1,44 +1,34 @@
 'use strict';
-// logics191108
-// Есть цепочка ДНК, верните ее комплемент РНК. Обе цепи ДНК и РНК представляют
-// собой последовательность нуклеотидов.
-// Нуклеотидами ДНК являются аденин (А), цитозин (С), гуанин (G) и тимидин (Т).
-// Нуклеотидами РНК являются аденин (A), цитозин (C), гуанин (G) и урацил (U).
-// Транскрибируемая цепь РНК цепи ДНК образуется путем замены каждого нуклеотида
-// его комплементом: G -> C, C -> G, T -> A, A -> U.
-// написать функцию которая будет принимать ДНК и выдавать РНК
-
-// например
-// func("ACGTGGTCTTAA");
-// результат =>>> "UGCACCAGAAUU" 
-
-
-let funcDnkToRnk = function (dnk){
-  let rnk = '';
-  for (let chr of dnk){
-    chr = chr.toUpperCase();
-    switch (chr) {
-      case 'G':
-        rnk +='C';
-        break;
-      case 'C':
-        rnk +='G';
-        break;
-      case 'T':
-        rnk +='A';
-        break;
-      case 'A':
-        rnk +='U';
-        break;        
-      default:
-        console.log('Недопустимый символ ' + chr);
-        //alert ('Недопустимый символ' + chr);
-        break;
-    }
-  }
-  return rnk;
+// logics191112
+// При помощи цикла for..in перебрать объект-справочник с датами рождения и смерти людей и вернуть справочник с продолжительностью их жизни. Например:
+// const persons = {
+//     'Уитни Хьюстон': { born: 1963, died: 2012 },
+//     'Оскар Уайльд': { born: 1854, died: 1900 },
+//     'Коко Шанель': { born: 1869, died: 1971 },
+//     'Джими Хендрикс': { born: 1942, died: 1970 },
+// };
+// console.log(ages(persons));
+//  {
+//    'Уитни Хьюстон': 56,
+//    'Оскар Уайльд': 46,
+//    'Коко Шанель': 87,
+//    'Джими Хендрикс': 27,
+//  }
+const persons = {
+  'Уитни Хьюстон': { born: 1963, died: 2012 },
+  'Оскар Уайльд': { born: 1854, died: 1900 },
+  'Коко Шанель': { born: 1869, died: 1971 },
+  'Джими Хендрикс': { born: 1942, died: 1970 },
 };
 
+function  ages(persons) {
+let persons_ages = {};
+  for (let key in persons){
+    persons_ages[key]=parseInt(persons[key].died)-parseInt(persons[key].born);
+  }
+  return persons_ages;
+}
 
-console.log(funcDnkToRnk('ACHGTGGTCTTAA'));
+
+console.log(ages(persons));
 
